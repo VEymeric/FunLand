@@ -1,2 +1,5 @@
 # FunLand
-Pour ne pas perdre la main
+Les jeux du fun sont ici !
+<ul>
+<li>Démineur (js)</li>
+</ul>
