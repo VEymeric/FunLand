@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Démineur</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="demineur.css" />
+        <link rel="icon" type="image/jpg" href="chat.jpg"/>
+        <script src="demineur.js"></script>
+    </head>
+    <body>
+    	<h1>Grosdémineurtavu</h1>  
+        <button id="bombesR">Bombes restantes</button>
+        <button id="casesR">Cases restantes</button> 
+        <button id="time">Timer</button> 
+    	<div id="monPlateau"></div>
+        <button onclick='restart()'>restart</button>
+        <script>
+            var xinit = 10;
+            var yinit = 20;
+            var binit = 20;
+            restart();
+    		var pattern = createPattern(x,y,b);
+			var affichage = printArray(pattern,x,y);
+			document.getElementById("monPlateau").innerHTML = affichage;
+            majEvent(affichage);
+        </script>
+    </body>
+</html>
