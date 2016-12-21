@@ -1,0 +1,35 @@
+table, td, tr{
+    border: 1px solid black;
+    text-align: center;
+}
+
+td, tr {
+    width: 30px;
+    height: 20px;
+
+}
+
+.caseUnknow{
+    background: blue;
+}
+.caseKnow{
+    background: red;
+}
+.caseDesactived{
+    background: green;
+}
+.cat{
+	background: blue;
+    background-image: url('chat.png');
+    background-position: center; 
+}
+.unCat{
+	background: green;
+    background-image: url('chat.png');
+    background-position: center; 
+}
+.caseExplosion{
+    background: yellow;
+    background-image: url('chat.png');
+    background-position: center; 
+}
