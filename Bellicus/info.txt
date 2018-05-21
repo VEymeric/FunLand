@@ -1,0 +1,5 @@
+Un plateau :
+une vue ordinateur
+une vue j1 et une j2
+la vue ordinateur connait toutes les pieces
+les vues j permettent de déplacer les pieces et marquer les pieces adverses

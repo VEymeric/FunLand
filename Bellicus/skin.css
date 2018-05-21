@@ -1,0 +1,11 @@
+table th,table td{
+	height: 30px;
+	width: 200px;
+
+}
+table span{
+	display:block;
+	background-color: #09C;
+	height: 100%;
+	width: 100%;
+}
