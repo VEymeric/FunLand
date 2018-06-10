@@ -13,7 +13,10 @@
     }
 
     .p1{
-      background-color: blue;
+      background-color: green;
+    }
+    td{
+      text-align: center;
     }
     </style>
     <title>Project</title>
@@ -27,17 +30,25 @@
   <body on load='createBoard();'>
     <button onclick='createBoard()'>Reset</button>
     <button onclick='affichage_matrice(getMatriceWinners())'>Matrice</button>
-
-    <div id=board></div>
-    <div id=matrice></div>
-
+    <button onclick='changeGameMode()'>GameMode</button>
+    <div id='gamemode'>1</div>
+    <div id='board'></div>
+    <div id='matrice'></div>
   </body>
 </html>
 
 <script>
 window.onload = createBoard;
 
-
+var gamemode = 1;
+function changeGameMode(){
+  if(gamemode == 1){
+    gamemode = 2;
+  }else{
+    gamemode = 1;
+  }
+  document.getElementById("gamemode").innerHTML = gamemode;
+}
 function createListElements(){
   list = ["3G","2G","1G","3S","2S","1S","3C","3C","2C","2C","1C","1C","Av","Av","Ta","Ta","Ch","Ou","Ou","At","Bo","Bo","Dr"];
   return list;

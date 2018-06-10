@@ -13,9 +13,6 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     cible = ev.target;
-    console.log(memory.children[0]);
-    console.log(cible);
-
     exchangeElements(memory.children[0], cible);
 }
 
@@ -23,13 +20,13 @@ function drop(ev) {
 // Note: Cloned copy of element1 will be returned to get a new reference back
 function exchangeElements(element1, element2)
 {
+    if (element1 == element2) return;
+    if (gamemode == 1 && element1.className != element2.className) return;
     var clonedElement1 = element1.cloneNode(true);
     var clonedElement2 = element2.cloneNode(true);
 
     element2.parentNode.replaceChild(clonedElement1, element2);
     element1.parentNode.replaceChild(clonedElement2, element1);
-    console.log(element2)
-    console.log(element1)
 
     return clonedElement1;
 }
@@ -53,7 +50,6 @@ function swapNodes(n1, n2) {
     if ( p1.isEqualNode(p2) && i1 < i2 ) {
         i2++;
     }
-    console.log(p1);
     p1.insertBefore(n2, p1.children[i1]);
     p2.insertBefore(n1, p2.children[i2]);
 }
