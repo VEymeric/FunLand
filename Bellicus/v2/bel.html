@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="bel.css" />
+    <script src="bel.js"></script>
+    <script src="board.js"></script>
+    <script src="../jquery/external/jquery/jquery.js"></script>
+    <script src="move.js"></script>
+    <script src="request.js"></script>
+
+  </head>
+  <body on load='createBoard();'>
+    <button onclick='createBoard()'>Reset</button>
+    <button onclick='affichage_matrice(getMatriceWinners())'>Matrice</button>
+    <button id="senddata">Valider</button>
+    <div id=board></div>
+    <div id=matrice></div>
+  </body>
+</html>
+
+<script>
+  $("#senddata").click(function send(board){
+  console.log("okkk");
+  var jenvoieca = ""
+  for (var i=0;i<23;i++){
+    var element = document.getElementById("button"+i);
+    jenvoieca += " " + element.innerHTML;
+  }
+  $.ajax({
+    url: "post_form.php",
+    method: 'POST',
+    data: {key: jenvoieca}
+  }).done(function (html) {
+    console.log(html);
+    if (html == "oui") {
+      $("#meteo").innerHTML = "truc";
+    }else {
+      $("#meteo").html("truc");
+    }
+  });
+});
+</script>

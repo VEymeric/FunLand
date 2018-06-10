@@ -1,0 +1,23 @@
+SERVEUR GO
+créer un plateau
+l'envoie aux 2 joueurs
+
+l'affiche aux deux joueurs
+les joueurs peuvent modifier le tableau
+une fois modifier ils peuvent valider
+si un joueur valide son board est envoyé au serveur
+si il est invalide, lui laisse un message et lui replace des pieces aléatoires
+si il est valide : met à jour la board du serveur go
+
+on attend que les 2 joueurs terminent le placement
+la partie commence
+le joueur 1 reçoit la possibilité des déplacer ses pions
+si le mouvement est valide envoit une action au serveur
+le serveur vérifie que l'action est possible
+si c'est impossible laisse une notification au joueur et reset l'action
+sinon il met a jour le tableau du serveur, puis celui des 2 joueurs
+le joueur 2 reçoit la possibilité de déplacer ses pions
+et ainsi de suite
+
+à chaque mouvement le serveur vérifie qu'aucun joueur n'a perdu.
+si un joueur a gagné : affcihe sur les 2 écrans

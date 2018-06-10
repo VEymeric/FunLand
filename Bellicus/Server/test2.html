@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+    <title>jQuery UI Droppable : Highlight using activeClass and hoverClass </title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <style>
+      .demoDrag, #demoDrop{font-family:Verdana; border: 5px solid #aaa;
+        padding:10px;width:120px; text-align: center;box-shadow:4px 4px 4px #444;
+        background:#44c756; margin: 4px; color:#fff;}
+      #demoDrop {padding: 20px; position: absolute; background:#fa4b2a;
+        width:200px; height:200px; right: 5px; z-index:-2;}
+       #demoDrop.dropActive {border: 10px solid blue;}
+      #demoDrop.dropHover {background-color:yellow; color:#000;}
+    </style>
+    <script>
+         $(document).ready(function() {
+             $('.demoDrag').draggable();
+            
+            $('#demoDrop').droppable({
+                drop: function(event, ui) {
+                    ui.draggable.text("Dropped");
+                },
+                activeClass: "dropActive",
+                hoverClass: "dropHover"
+            });
+        });
+    </script>
+</head> 
+<body>
+   <div id="demoDrop">
+       Drop Zone
+    </div>        
+    <div class="demoDrag">
+        Drag This
+    </div>
+ 
+</body>
+</html>

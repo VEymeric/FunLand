@@ -1,43 +1,3 @@
-<!DOCTYPE html>
-<!-- Don't work for firefox -->
-<html>
-  <head>
-    <style>
-    #div1, #div2 {
-        float: left;
-        width: 100px;
-        height: 35px;
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid black;
-    }
-
-    .p1{
-      background-color: blue;
-    }
-    </style>
-    <title>Project</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="jquery/external/jquery/jquery.js"></script>
-    <script src="jquery/jquery-ui.js"></script>
-    <script src="drag.js"></script>
-    <script src="board.js"></script>
-
-  </head>
-  <body on load='createBoard();'>
-    <button onclick='createBoard()'>Reset</button>
-    <button onclick='affichage_matrice(getMatriceWinners())'>Matrice</button>
-
-    <div id=board></div>
-    <div id=matrice></div>
-
-  </body>
-</html>
-
-<script>
-window.onload = createBoard;
-
-
 function createListElements(){
   list = ["3G","2G","1G","3S","2S","1S","3C","3C","2C","2C","1C","1C","Av","Av","Ta","Ta","Ch","Ou","Ou","At","Bo","Bo","Dr"];
   return list;
@@ -115,6 +75,3 @@ function affichage_matrice(matrice){
     });
     document.getElementById("matrice").innerHTML = affichage;
 }
-
-
-</script>
