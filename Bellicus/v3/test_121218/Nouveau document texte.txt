@@ -1,0 +1,3 @@
+- ajouter une demande quand on clic dessus
+- si le joueur accepte l'autre personne peut devenir son adversaire
+- si il devient son adversaire, il disparait de la liste et la page change pour afficher le tableau

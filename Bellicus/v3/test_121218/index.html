@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var opponentPseudo = null;
+      var mePseudo = null;
+      while (mePseudo == null || mePseudo.length < 2){
+        var mePseudo = prompt('Quel est votre pseudo ?');
+      }
+
+      var meId = null;
+
+      $(function () {
+        var socket = io();
+
+        console.log(opponentPseudo);
+        console.log(mePseudo);
+        console.log(meId);
+
+        $('form').submit(function(){
+          socket.emit('chat message', mePseudo, $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+        socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+        });
+        function repondreALAnnonce(a,b,c){
+          console.log(a);
+          console.log(b);
+          console.log(c);
+        }
+        socket.on('annoncer un joueur disponible', function(pseudo, id){
+            $('#listPlayer').append($("<li id=" + $('#listPlayer').length + " onclick='repondreALAnnonce(" + pseudo + ", " + meId + ", " + mePseudo + ")'>").text(pseudo));
+
+        });
+
+        socket.on('test', function(msg){
+          meId = msg;
+          console.log(opponentPseudo);
+          console.log(mePseudo);
+          console.log(meId);
+          socket.emit('recherche player', mePseudo);
+        });
+
+
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="listPlayer"></ul>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+  </body>
+</html>
