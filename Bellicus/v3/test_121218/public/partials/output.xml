@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.6.5 on win32)" generated="20190103 10:11:32.454">
+<suite id="s1" name="GlobalTest" source="D:\AUCHAN_ALTERANCE\bascule\Tests\GlobalTest.robot">
+<test id="s1-t1" name="Tester l'Integration des commandes">
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<assign>
+<var>${date}</var>
+</assign>
+<msg timestamp="20190103 10:11:33.813" level="INFO">${date} = 2019-01-03 10:11:33.813</msg>
+<status status="PASS" starttime="20190103 10:11:33.812" endtime="20190103 10:11:33.813"></status>
+</kw>
+<kw name="Robot Creer Log" library="RobotKeyword">
+<arguments>
+<arg>${info}</arg>
+<arg>${date}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:33.815" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'Logs/log.csv'</msg>
+<status status="FAIL" starttime="20190103 10:11:33.813" endtime="20190103 10:11:33.815"></status>
+</kw>
+<status status="FAIL" starttime="20190103 10:11:33.811" endtime="20190103 10:11:33.816" critical="yes">FileNotFoundError: [Errno 2] No such file or directory: 'Logs/log.csv'</status>
+</test>
+<test id="s1-t2" name="Tester la Remontee des stocks">
+<kw name="Ouvrir un navigateur et se connecter a Logistar" library="ConnexionLogistar">
+<doc>Definit le repertoire pour les captures d ecran, ouvre un navigateur et se connecte a l application EREF avec comme code utilisateur ``user_eref`` et comme mot de passe ``mdp_eref``</doc>
+<arguments>
+<arg>http://lgct10pls.qualif.fr.auchan.com:10303/gwtlgct10pls/#</arg>
+<arg>HFRA</arg>
+<arg>HFRA</arg>
+</arguments>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<doc>Sets the directory for captured screenshots.</doc>
+<arguments>
+<arg>${directory_screenshot}</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:33.819" endtime="20190103 10:11:33.819"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+</arguments>
+<assign>
+<var>${options}</var>
+</assign>
+<msg timestamp="20190103 10:11:33.820" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000000000AFAC8D0&gt;</msg>
+<status status="PASS" starttime="20190103 10:11:33.819" endtime="20190103 10:11:33.820"></status>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>my_alias</arg>
+<arg>chrome_options=${options}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:33.820" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20190103 10:11:33.820" endtime="20190103 10:11:36.665"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20190103 10:11:36.666" endtime="20190103 10:11:37.826"></status>
+</kw>
+<kw name="Aller sur la page Logistar" library="ConnexionLogistar">
+<arguments>
+<arg>${homepage}</arg>
+</arguments>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${homepage}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:37.827" level="INFO">Opening url 'http://lgct10pls.qualif.fr.auchan.com:10303/gwtlgct10pls/#'</msg>
+<status status="PASS" starttime="20190103 10:11:37.827" endtime="20190103 10:11:44.052"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ConnexionLogistar['fenetre']}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:44.052" endtime="20190103 10:11:44.577"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ConnexionLogistar['login']}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:44.577" endtime="20190103 10:11:44.665"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${ConnexionLogistar['login']}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:44.666" endtime="20190103 10:11:44.726"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ConnexionLogistar['mdp']}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:44.726" endtime="20190103 10:11:44.773"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${ConnexionLogistar['valider']}</arg>
+<arg>30</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:44.774" endtime="20190103 10:11:44.836"></status>
+</kw>
+<status status="PASS" starttime="20190103 10:11:37.826" endtime="20190103 10:11:44.837"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${ConnexionLogistar['login']}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:44.838" level="INFO">Typing text 'HFRA' into text field '//input[@id="x-auto-3-input"]'.</msg>
+<status status="PASS" starttime="20190103 10:11:44.837" endtime="20190103 10:11:44.990"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${ConnexionLogistar['mdp']}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:44.991" level="INFO">Typing text 'HFRA' into text field '//input[@id="x-auto-4-input"]'.</msg>
+<status status="PASS" starttime="20190103 10:11:44.990" endtime="20190103 10:11:45.117"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${ConnexionLogistar['valider']}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:45.118" level="INFO">Clicking element '//div[@id="OK"]'.</msg>
+<status status="PASS" starttime="20190103 10:11:45.117" endtime="20190103 10:11:45.193"></status>
+</kw>
+<status status="PASS" starttime="20190103 10:11:33.818" endtime="20190103 10:11:45.193"></status>
+</kw>
+<kw name="Remontee des stocks" library="RemonteeDesStocks">
+<kw name="Verifier que le menu est disponible" library="IntegrationCommandes">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${menu['fournisseur']}</arg>
+<arg>15</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:45.195" endtime="20190103 10:11:46.143"></status>
+</kw>
+<status status="PASS" starttime="20190103 10:11:45.194" endtime="20190103 10:11:46.143"></status>
+</kw>
+<kw name="Aller dans le menu fournisseur : 44" library="RemonteeDesStocks">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${menu['fournisseur']}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:46.144" level="INFO">Clicking element '//div/div[@id="D"]'.</msg>
+<status status="PASS" starttime="20190103 10:11:46.144" endtime="20190103 10:11:46.246"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${menu['fournisseur_44']}</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:46.246" endtime="20190103 10:11:46.291"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${menu['fournisseur_44']}</arg>
+</arguments>
+<msg timestamp="20190103 10:11:46.292" level="INFO">Clicking element '//div/div[@id="D4"]'.</msg>
+<status status="PASS" starttime="20190103 10:11:46.292" endtime="20190103 10:11:46.366"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${menu_44['titre']}</arg>
+<arg>25</arg>
+</arguments>
+<status status="PASS" starttime="20190103 10:11:46.366" endtime="20190103 10:11:56.975"></status>
+</kw>
+<status status="PASS" starttime="20190103 10:11:46.143" endtime="20190103 10:11:56.975"></status>
+</kw>
+<kw name="Robot Ajouter Log" library="RobotKeyword">
+<arguments>
+<arg>${info}</arg>
+<arg>AGA / AGP</arg>
+</arguments>
+<msg timestamp="20190103 10:11:56.976" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'Logs/log.csv'</msg>
+<status status="FAIL" starttime="20190103 10:11:56.975" endtime="20190103 10:11:56.976"></status>
+</kw>
+<status status="FAIL" starttime="20190103 10:11:45.193" endtime="20190103 10:11:56.977"></status>
+</kw>
+<status status="FAIL" starttime="20190103 10:11:33.817" endtime="20190103 10:11:56.977" critical="yes">FileNotFoundError: [Errno 2] No such file or directory: 'Logs/log.csv'</status>
+</test>
+<status status="FAIL" starttime="20190103 10:11:32.468" endtime="20190103 10:11:56.978"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2">Critical Tests</stat>
+<stat pass="0" fail="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="2" id="s1" name="GlobalTest">GlobalTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

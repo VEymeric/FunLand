@@ -1,5 +1,5 @@
 function addElement(player, id, value){
-  var element = "<button class='element p"+player+"' id=button" +value +" draggable='true' ondragstart='drag(event)' ondrop='drop(event)' ondragover='allowDrop(event)'>"+value+"</button>"
+  var element = "<button class='element p"+player+"' id=button" +id +" draggable='true' ondragstart='drag(event)' ondrop='drop(event)' ondragover='allowDrop(event)'>"+value+"</button>"
   return element
 }
 function createBoard(){
@@ -23,7 +23,7 @@ function createBoard(){
     finalBoard += "<tr>";
     if(index == 23) joueur +=1;
     for (colonne = 0; colonne < 6 ; colonne++){
-      finalBoard += "<td id=box"+index+">"+addElement(joueur,index, pions[index]+"</td>";
+      finalBoard += "<td id=box"+index+">"+addElement(joueur,index, pions[index])+"</td>";
 
       index++;
       if(index == 23) joueur++;
